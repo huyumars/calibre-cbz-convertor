@@ -4,7 +4,7 @@ from calibre.utils.zipfile import ZipFile
 from os import path
 
 
-class MarkdownOutput(OutputFormatPlugin):
+class CBZOutput(OutputFormatPlugin):
     name = "CBZ Output"
     author = "mars"
     version = (0, 0, 1)

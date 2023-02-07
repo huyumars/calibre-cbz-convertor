@@ -1,5 +1,5 @@
 # Calibre CBZ Convertor
-Plugin to convert comic book to cbz (zip) format
+Calibre plugin to convert comic book to cbz (zip) format
 
 # How to install
 

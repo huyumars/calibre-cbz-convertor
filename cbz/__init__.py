@@ -6,7 +6,7 @@ from os import path
 
 class CBZOutput(OutputFormatPlugin):
     name = "CBZ Output"
-    author = "mars"
+    author = "Mars, Hu"
     version = (0, 0, 1)
     file_type = "cbz"
     commit_name = "cbz_output"

@@ -16,8 +16,13 @@ class CBZOutput(OutputFormatPlugin):
         with TemporaryDirectory('_img_extract_') as tdir:
             for item in oeb_book.manifest:
                 if item.media_type.startswith('image'):
-                    filename = tdir + "/" + path.basename(item.href)
-                    with open(filename, "wb") as binary_file:
+                    basename = path.basename(item.href)
+                    if "cover" in path.splitext(basename)[0]:
+                        oeb_book.logger.info("find cover image", basename)
+                        # add 000 prefix to cover image to ensure it become sorted first
+                        basename = "0000_" + basename
+                    tmp_file = path.join(tdir, basename)
+                    with open(tmp_file, "wb") as binary_file:
                         # Write bytes to file
                         binary_file.write(item.data)
-                    cbz.write(filename, path.basename(item.href))
+                    cbz.write(tmp_file, basename)

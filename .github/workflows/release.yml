@@ -18,9 +18,13 @@ jobs:
     - name: print 
       run: echo $GITHUB_REF
 
-    - name: upload
-      uses: actions/upload-artifact@v3
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
       with:
-          name: cbz.zip
-          path: cbz.zip
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: cbz.zip
+        asset_name: cbz.zip
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "calibre cbz output plugin"
 

@@ -1,0 +1,22 @@
+name: Release CI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: make zip
+      run: make zip
+
+    - name: upload
+      uses: actions/upload-artifact@v3
+      with:
+          name: cbz.zip
+          path: cbz.zip
